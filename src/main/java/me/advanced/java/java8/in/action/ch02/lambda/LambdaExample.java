@@ -15,17 +15,16 @@ import java.util.List;
 public class LambdaExample implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        System.out.println("Ch02 LambdaExample");
-        System.out.println("Consume");
+        System.out.println("\nConsume");
         consume(Arrays.asList(1, 2, 3, 4, 5), System.out::println);     //Method reference
 
-        System.out.println("Filter");
+        System.out.println("\nFilter");
         filter(Arrays.asList(1, 2, 3, 4, 5, 1, 23, 123, 23), (item) -> item > 10).forEach(System.out::println);
 
-        System.out.println("Map");
+        System.out.println("\nMap");
         map(Arrays.asList("aefawf", "awfawefa", "awefaewf", "afeawf"), String::length).forEach(System.out::println);
 
-        System.out.println("기본형 특화");
+        System.out.println("\n기본형 특화");
         System.out.println(Arrays.toString(filterByInt(new int[]{1, 2234, 3, 12, 321, 3213123, 1, 2311, 5}, item -> item > 40)));
     }
 
