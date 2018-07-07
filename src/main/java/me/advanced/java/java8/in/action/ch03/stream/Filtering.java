@@ -27,7 +27,7 @@ public class Filtering implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        System.out.println("Filtering basic");
+        System.out.println("\nFiltering basic");
         this.dishes.stream().filter(Dish::isLowerCalories).forEach(System.out::println);
 
         System.out.println("\nFiltering top 3");
