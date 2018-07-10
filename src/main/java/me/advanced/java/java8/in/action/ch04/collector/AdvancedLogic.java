@@ -36,7 +36,7 @@ public class AdvancedLogic implements ApplicationRunner {
         Transaction.list().stream()
                 .collect(Collectors.groupingBy(Transaction::getCity))
                 .forEach((s, transactions) ->
-                            result.put(s, transactions.stream().collect(Collectors.groupingBy(Transaction::isChapTransaction))));
+                            result.put(s, transactions.stream().collect(Collectors.groupingBy(Transaction::isExpensiveTransaction))));
 
         result.forEach((s, booleanListMap) -> {
             System.out.println("도시 : " + s);

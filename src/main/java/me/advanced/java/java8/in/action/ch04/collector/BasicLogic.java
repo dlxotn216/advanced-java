@@ -56,10 +56,10 @@ public class BasicLogic implements ApplicationRunner {
                 result.put(item.getCity(), new HashMap<>());
             }
 
-            List<Transaction> transactions = result.get(item.getCity()).get(item.isChapTransaction());
+            List<Transaction> transactions = result.get(item.getCity()).get(item.isExpensiveTransaction());
             if (transactions == null) {
                 transactions = new ArrayList<>();
-                result.get(item.getCity()).put(item.isChapTransaction(), transactions);
+                result.get(item.getCity()).put(item.isExpensiveTransaction(), transactions);
             }
             transactions.add(item);
         });

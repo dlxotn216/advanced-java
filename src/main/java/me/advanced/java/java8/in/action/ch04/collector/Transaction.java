@@ -20,7 +20,7 @@ public class Transaction {
     private String currency;
     private Integer money;
 
-    public Boolean isChapTransaction(){
+    public Boolean isExpensiveTransaction(){
         return money > 5000;
     }
 
