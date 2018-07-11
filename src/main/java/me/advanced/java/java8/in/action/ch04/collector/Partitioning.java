@@ -25,7 +25,8 @@ public class Partitioning implements ApplicationRunner {
                 });
         System.out.println();
         //groupingBy 와 비슷하지만 Predicate을 인자로 받는다
-        //partitioningBy는 참, 거짓 두 요소의 스트림을 분할 후에도 유지한다
+        //partitioningBy는 분할 결과가 반드시 존재한다 (빈 리스트라도)
+        //반면 groupingBy는 매칭되는 것이 없으면 해당 null이다
 
         System.out.println("\n비싼지 여부로 분할 후 currency 별로 그룹화");
         Transaction.list().stream().collect(Collectors.partitioningBy(                      //downstream으로 groupingBy 적용
