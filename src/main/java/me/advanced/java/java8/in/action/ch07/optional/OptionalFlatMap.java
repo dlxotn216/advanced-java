@@ -1,9 +1,7 @@
 package me.advanced.java.java8.in.action.ch07.optional;
 
-import me.advanced.java.java8.in.action.ch07.optional.model.Insurance;
 import me.advanced.java.java8.in.action.ch07.optional.model.OptionalCar;
 import me.advanced.java.java8.in.action.ch07.optional.model.OptionalPerson;
-import me.advanced.java.java8.in.action.ch07.optional.model.Person;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Service;
