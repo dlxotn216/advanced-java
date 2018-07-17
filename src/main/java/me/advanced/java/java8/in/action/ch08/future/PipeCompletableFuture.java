@@ -110,10 +110,11 @@ class ShopService {
 
         public String getPrice(String product) {
             try {
-                Thread.sleep(new Random().nextInt(3000));
+                Thread.sleep(new Random().nextInt(10000));
             } catch (InterruptedException e) {
 
             }
+            System.out.println("Send Response -> " + name + "::" + name.charAt(0) * 1000);
             return name + "::" + name.charAt(0) * 1000;
         }
     }
@@ -154,7 +155,7 @@ class DiscountService {
 
     public String getDiscountedPrice(Parsed parsed) {
         try {
-            Thread.sleep(new Random().nextInt(3000));
+            Thread.sleep(new Random().nextInt(1000));
         } catch (InterruptedException e) {
 
         }
