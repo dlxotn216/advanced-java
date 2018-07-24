@@ -26,7 +26,7 @@ public class Concurrency implements ApplicationRunner {
         longAdder.add(10);
         longAdder.add(20);
 
-        System.out.println("Long adder sum result is " + longAdder.sum());                  //30
+        System.out.println("Long adder sum Result is " + longAdder.sum());                  //30
 
         LongAccumulator longAccumulator = new LongAccumulator((left, right) -> left + right, 0);
         //여러 스레드에서 값을 더함
@@ -34,7 +34,7 @@ public class Concurrency implements ApplicationRunner {
         longAccumulator.accumulate(10);
         longAccumulator.accumulate(10);
 
-        System.out.println("LongAccumulator sum result is " + longAccumulator.get());       //30
+        System.out.println("LongAccumulator sum Result is " + longAccumulator.get());       //30
         System.out.println();
     }
 }

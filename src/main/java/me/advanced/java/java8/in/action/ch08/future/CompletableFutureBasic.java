@@ -21,7 +21,7 @@ public class CompletableFutureBasic implements ApplicationRunner {
 
         Future<Double> priceFuture = shop.getPriceAsync("test1");
 
-        System.out.println("Call blocking to get result: " + priceFuture.get(3, TimeUnit.SECONDS));
+        System.out.println("Call blocking to get Result: " + priceFuture.get(3, TimeUnit.SECONDS));
         System.out.println();
     }
 }

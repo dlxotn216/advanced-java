@@ -37,23 +37,23 @@ public class NewMethodOfMap implements ApplicationRunner {
         System.out.println("\ncompute");
         System.out.println(compute());
         System.out.println(map);
-        System.out.println("result: " + compute());
+        System.out.println("Result: " + compute());
         System.out.println(map);
 
         System.out.println("\ncompute if absent");
-        System.out.println("result : " + getForComputeIfAbsent());
+        System.out.println("Result : " + getForComputeIfAbsent());
         System.out.println(map);
 
         System.out.println("\nmerge");
-        System.out.println("result :" + map.merge("mergeKey", "init", (s, s2) -> s + s2));
+        System.out.println("Result :" + map.merge("mergeKey", "init", (s, s2) -> s + s2));
         System.out.println(map);
-        System.out.println("result :" + map.merge("mergeKey", "+plus", (s, s2) -> s + s2));
+        System.out.println("Result :" + map.merge("mergeKey", "+plus", (s, s2) -> s + s2));
         System.out.println(map);
 
         System.out.println("\bput if absent");
-        System.out.println("result : " + map.putIfAbsent("pubIfAbsent", "오버헤드가 큰 것"));       //null 반환 됨
+        System.out.println("Result : " + map.putIfAbsent("pubIfAbsent", "오버헤드가 큰 것"));       //null 반환 됨
         System.out.println(map);
-        System.out.println("result : " + map.putIfAbsent("pubIfAbsent", "오버헤드가 큰 것"));       //어쨌든 생성함(이미 존재하더라도, 반면 compute if absent는 존재하지 않는 경우에만 mapping function을 통해 받음
+        System.out.println("Result : " + map.putIfAbsent("pubIfAbsent", "오버헤드가 큰 것"));       //어쨌든 생성함(이미 존재하더라도, 반면 compute if absent는 존재하지 않는 경우에만 mapping function을 통해 받음
         System.out.println(map);
         System.out.println();
 

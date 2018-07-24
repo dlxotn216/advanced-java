@@ -22,14 +22,14 @@ public class NewMethodOfFiles implements ApplicationRunner {
         //재귀가 아니며 게으르게 스트림이 처리되므로 큰 디렉터리 처리시 유용하다
         Files.list(Paths.get(Optional.ofNullable(getClass().getClassLoader().getResource("temp"))
                 .orElseThrow(IllegalArgumentException::new).toURI()))
-                .forEach(path -> System.out.println("Files.list result is " + path));
+                .forEach(path -> System.out.println("Files.list Result is " + path));
         /*
         Files.list
-        Files.list result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1
-        Files.list result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2
-        Files.list result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test.txt
-        Files.list result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test2.txt
-        Files.list result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test3.txt
+        Files.list Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1
+        Files.list Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2
+        Files.list Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test.txt
+        Files.list Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test2.txt
+        Files.list Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test3.txt
 
          */
 
@@ -38,21 +38,21 @@ public class NewMethodOfFiles implements ApplicationRunner {
         System.out.println("\nFiles.walk");
         Files.walk(Paths.get(Optional.ofNullable(getClass().getClassLoader().getResource("temp"))
                 .orElseThrow(IllegalArgumentException::new).toURI()), 3)
-                .forEach(path -> System.out.println("Files.walk result is " + path));
+                .forEach(path -> System.out.println("Files.walk Result is " + path));
 
         /*
         Files.walk
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\target.txt
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\test2.txt
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\test3.txt
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2\test2.txt
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test.txt
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test2.txt
-        Files.walk result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test3.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\target.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\test2.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\test3.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2\test2.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test2.txt
+        Files.walk Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\test3.txt
          */
 
         System.out.println("\nFiles.find");
@@ -68,7 +68,7 @@ public class NewMethodOfFiles implements ApplicationRunner {
             } else {
                 return false;
             }
-        }).forEach(path -> System.out.println("Files.find result is " + path));
+        }).forEach(path -> System.out.println("Files.find Result is " + path));
         /*
         Files.find
         Find path ...C:\Users\taesu\Desktop\advanced-java\target\classes\temp basic info ...2018-07-07T02:04:47.000416Z
@@ -76,7 +76,7 @@ public class NewMethodOfFiles implements ApplicationRunner {
         Find path ...C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1 basic info ...2018-07-22T12:20:50.07114Z
         Find path ...C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\target.txt basic info ...2018-07-22T12:23:05.991934Z
         Find target!
-        Files.find result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\target.txt
+        Files.find Result is C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\target.txt
         Find path ...C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\inner1ofinnser1\test2.txt basic info ...2018-07-22T12:20:50.079135Z
         Find path ...C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner1\test3.txt basic info ...2018-07-22T12:20:50.176079Z
         Find path ...C:\Users\taesu\Desktop\advanced-java\target\classes\temp\inner2 basic info ...2018-07-22T12:20:50.10512Z
