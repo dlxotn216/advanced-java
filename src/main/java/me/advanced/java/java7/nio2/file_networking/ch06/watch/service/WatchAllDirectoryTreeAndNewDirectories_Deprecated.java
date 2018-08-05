@@ -23,7 +23,7 @@ import static java.nio.file.StandardWatchEventKinds.*;
  * Created by taesu on 2018-08-02.
  */
 @Service
-public class WatchAllDirectoryTreeAndNewDirectories implements ApplicationRunner {
+public class WatchAllDirectoryTreeAndNewDirectories_Deprecated implements ApplicationRunner {
     @ChapterRunner
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
