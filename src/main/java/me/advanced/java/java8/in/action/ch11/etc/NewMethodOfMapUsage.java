@@ -18,12 +18,12 @@ import java.util.*;
 public class NewMethodOfMapUsage implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments applicationArguments) throws Exception {
-//		new ComputeExample().run();
+		//		new ComputeExample().run();
 		new ComputeIfAbsentExample().run();
-//		new MergeExample().run();
-//		new PutIfAbsentExample().run();
-//		new RemoveByKeyValyeExample().run();
-//		new ReplaceAllExample().run();
+		//		new MergeExample().run();
+		//		new PutIfAbsentExample().run();
+		//		new RemoveByKeyValyeExample().run();
+		//		new ReplaceAllExample().run();
 	}
 }
 
@@ -138,13 +138,29 @@ class ComputeIfAbsentExample {
 		});
 		System.out.println(menu);
 		
+		System.out.println("\n\n유용한 로직");
+		Map<String, Set<String>> anagramMap = new HashMap<>();
+		Arrays.asList("apple", "alepp", "ppela", "aelpst", "petals", "staple", "banana", "orange")
+			  .forEach(s -> anagramMap.computeIfAbsent(alphabetize(s), (unused) -> new TreeSet<>()).add(s));
+		System.out.println(anagramMap);
+		
+		
+		Map<String, Map<Integer, Set<String>>> regionalMovieRatings = new HashMap<>();
+		regionalMovieRatings
+				.computeIfAbsent("Seoul", s -> new TreeMap<>())
+				.computeIfAbsent(5, integer -> new TreeSet<>())
+				.add("mainKey");
+		
+		System.out.println(regionalMovieRatings);
+							
 		
 		System.out.println("\n\nList in Map");
 		List<String> foods = Arrays.asList("orange", "banana", "coffee", "pizza",
-				"orange", "hamburger", "pizza", "coffee", "banana");
+										   "orange", "hamburger", "pizza", "coffee", "banana"
+		);
 		Map<String, List<String>> map = new HashMap<>();
 		foods.forEach(food ->
-				map.computeIfAbsent(food, key -> new ArrayList<>()).add(food));
+							  map.computeIfAbsent(food, key -> new ArrayList<>()).add(food));
 		System.out.println(map);
 		map.clear();
 		
@@ -155,6 +171,12 @@ class ComputeIfAbsentExample {
 			map.get(food).add(food);
 		}
 		System.out.println(map);
+	}
+	
+	private String alphabetize(String s) {
+		char[] chars = s.toCharArray();
+		Arrays.sort(chars);
+		return new String(chars);
 	}
 	
 	private String getMenuPriceFromRemote(String menuId) {
@@ -170,7 +192,7 @@ class ComputeIfAbsentExample {
 
 class MergeExample {
 	private List<String> fruits = Arrays.asList("Orange", "Orange", "Orange", "Banana",
-			"Apple", "Orange", "Melon", "Orange", "Orange", "Banana", "Apple", "Watermelon"
+												"Apple", "Orange", "Melon", "Orange", "Orange", "Banana", "Apple", "Watermelon"
 	);
 	private Map<String, Integer> countByGroup = new HashMap<>();
 	
@@ -182,8 +204,8 @@ class MergeExample {
 		//기존에 있는 Value(originValue)와 새로운 Value(newValue)를 
 		//인자로 받는 BiFunction을 제공
 		fruits.forEach(fruit ->
-				countByGroup.merge(fruit, 1, (originValue, newValue) ->
-						originValue != null ? originValue + newValue : newValue));
+							   countByGroup.merge(fruit, 1, (originValue, newValue) ->
+									   originValue != null ? originValue + newValue : newValue));
 		
 		System.out.println(countByGroup);
 		countByGroup.clear();
@@ -191,8 +213,7 @@ class MergeExample {
 		for(String fruit : fruits) {
 			if(countByGroup.containsKey(fruit)) {
 				countByGroup.put(fruit, countByGroup.get(fruit) + 1);
-			}
-			else {
+			} else {
 				countByGroup.put(fruit, 1);
 			}
 		}
